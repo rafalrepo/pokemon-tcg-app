@@ -1,0 +1,22 @@
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px
+}
+
+.cards__moreBtn{
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 35px;
+
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(33, 33, 107, 0.35);
+    background-image: linear-gradient(71deg, #24246f 0%, #141455 100%);
+    cursor: pointer;
+}
