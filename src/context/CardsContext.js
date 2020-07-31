@@ -9,6 +9,7 @@ export const CardsProvider = ( { children } ) => {
     const [name, setName] = useState('');
     const [page, setPage] = useState('');
     const [pageSize, setPageSize] = useState('3');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -16,15 +17,15 @@ export const CardsProvider = ( { children } ) => {
             const api = await baseURL.get(`${API_RESOURCE.cards}/?page=${page}&pageSize=${pageSize}&name=${name}`);
             const data = await api.data;
             const { cards } = {...data};
-
             setCards(cards)
+            setLoading(false)
         }
 
         fetchData();
 
     }, [name, page, pageSize]);
 
-    const value = [[cards, setCards], [name, setName], [page, setPage], [pageSize, setPageSize]]
+    const value = [[cards, setCards], [name, setName], [page, setPage], [pageSize, setPageSize], [loading, setLoading]]
 
     return(
         <CardsContext.Provider value={value}>
